@@ -1,0 +1,16 @@
+var collector = {};
+
+var inputArray = ["1", "2", "3", "2", "1"];
+// creates a collector array with the property names as 1, 2, 3 
+//
+inputArray.forEach(function(elem){
+  collector[elem] = true;
+  
+})
+
+var outputArray = [];
+for(name in collector){
+  outputArray.push(name);
+ }
+
+console.log(outputArray);

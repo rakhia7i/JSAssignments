@@ -1,0 +1,14 @@
+var fn;
+
+function foo(){
+  var a= 10;
+  fn= function(){
+    console.log(a);
+    
+  };
+  fn();
+  
+}
+
+foo();
+fn();     // prints 10 bcoz of the concept of closures although console.log(a) does not work  

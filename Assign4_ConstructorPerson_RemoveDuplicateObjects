@@ -1,0 +1,93 @@
+var names = ["Rakhi","Indu","Humera","Dipti","Anita","Sarika","Malini","Tina","Rhea","Ruchi"];
+var states = ["NY","CA","NY","NY","Arizona","NY","CA","CA","Arizona","NY"];
+
+function Person(name, state) {
+  this.name = name;
+  this.address = {
+    "state" : state
+   };
+   
+   this.isSameState = function (stateSent)
+   {
+    return(this.address.state === stateSent)
+   };
+  };
+  
+// create a new array of persons
+ var personsArray = [];
+   for(var i=0; i < names.length; i++) {  
+      personsArray.push(new Person(names[i], states[i]));
+   }
+
+personsArray1 = [];
+
+// can be done with forEach too
+names.forEach(function(perName, index){
+  var newPer = new Person(perName, states[index]);
+  personsArray1.push(newPer);
+ 
+})
+
+
+// display all the persons from the persons Array
+personsArray.forEach(function(person){
+   console.log(person.name + " , " +person.address.state);
+})
+
+console.log("Total Number of persons is " + personsArray.length);
+
+function checkSameState(stateSent){
+  var newPersons=[];
+  for(var j=0; j< personsArray.length; j++){
+    if(personsArray[j].isSameState(stateSent)){
+      newPersons.push(personsArray[j]);
+    }
+  }   
+  return newPersons;
+ }
+
+var sameStateArr = checkSameState("NY");
+console.log("No of persons having the given state are " + sameStateArr.length);
+sameStateArr.forEach(function(sameStatePerson){
+   console.log(sameStatePerson.name + ", " + sameStatePerson.address.state);
+})
+
+//creating an array with  duplicate objects with same states and names 
+var names = ["Rakhi","Indu","Humera","Rakhi","Anita","Sarika","Indu","Tina","Rhea","Rakhi"];
+var states = ["NY","CA","NY","NY","Arizona","NY","CA","CA","Arizona","Arizona"];
+
+var duplPersons = [];
+for(var i=0; i<names.length; i++){
+  duplPersons.push(new Person(names[i], states[i]));
+   
+}
+                      
+// display the duplicate persons array
+console.log("Persons array with duplicate Names & States >>>")
+duplPersons.forEach(function(dPerson){
+    console.log(dPerson.name + "," + dPerson.address.state);
+    });
+  
+  
+// remove duplicates from the duplicate Array
+for(var i = 0; i<duplPersons.length; i++){
+  currName = duplPersons[i].name;
+  currState = duplPersons[i].address.state;
+    
+   for(var j=duplPersons.length-1; j>i; j--){
+    if((duplPersons[j].name === currName) && (duplPersons[j].address.state === currState)) {
+       duplPersons.splice(j,1);
+     }
+   }
+ }
+
+
+
+//display the altered duplicate persons array
+ console.log("Same Array without duplicates >>");
+ 
+  
+duplPersons.forEach(function(dPerson){
+  console.log(dPerson.name + "," + dPerson.address.state);
+ });
+

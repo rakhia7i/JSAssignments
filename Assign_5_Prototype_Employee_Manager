@@ -1,0 +1,58 @@
+var Employee = function (firstName, lastName, empState) {
+  
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.address ={
+    "state" : empState
+  };
+ };
+
+Employee.prototype.setNameAddress = function(fName, lName, state) {
+  this.firstName = fName;
+  this.lastName = lName;
+  this.address.state = state; 
+}
+
+Employee.prototype.getFullName = function() {
+  return (this.firstName + " " + this.lastName);
+}
+
+Employee.prototype.isFromSameState = function(emp){
+  return (this.address.state === emp.address.state);
+  }
+
+
+var emp1 = new Employee("Rakhi", "Agnihotri", "CA");
+console.log(emp1.getFullName() + " " + emp1.address.state);
+
+var emp2 = new Employee("Anita", "Kundra", "NJ");
+console.log(emp2.getFullName() + " " + emp2.address.state);
+
+console.log("Employees from same state " + emp2.isFromSameState(emp1));
+
+console.log("--------- Second Part --------");
+
+var Manager = function(fName, lName, st, noEmpl, deptt){
+  this.setNameAddress(fName, lName, st);
+ 
+  // exclusive properties of the Manager object
+  this.noEmployees = noEmpl;
+  this.dept = deptt;
+};
+
+
+Manager.prototype = new Employee();
+
+var manEmp1 = new Manager("Shreya", "Ghosal", "CA", 12, "accounts");
+console.log("Manager1 = " + manEmp1.getFullName() + " " + manEmp1.address.state + " " + manEmp1.noEmployees + " " + manEmp1.dept);
+
+var manEmp2 = new Manager("Ruchi", "Bahel", "AZ", 14, "HR");
+console.log("Manager2 = " + manEmp2.getFullName()+ " " + manEmp2.address.state + " " + manEmp2.noEmployees + " " + manEmp2.dept);
+
+// this function is not returning the correct result when called with the manager objects
+// it works with the employee objects though
+console.log("Managers from same states = " + manEmp1.isFromSameState(manEmp2));
+
+
+
+

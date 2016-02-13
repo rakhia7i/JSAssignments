@@ -1,0 +1,35 @@
+function Employee(){
+  
+  this.name="Rakhi";
+  
+}
+
+var emp1= new Employee;
+console.log(emp1);    //gives name:Rakhi and __proto__:Object
+
+
+
+
+// second scenario
+var Employee = function(){
+  this.fisrtName = "Rakhi";
+  this.lastName = "Agnihotri";
+  
+}
+Employee.prototype.myName ="this is a prototype"; // creates a myName property on the prototype object
+
+Employee.prototype.getFullName = function(){
+  return this.firstName + this.lastName;
+}
+// creates a function getFullName on the protoype object of the constructor
+
+
+var emp1 = new Employee;
+console.log(emp1);    // emp1.myName will print this is a prototype 
+
+emp1.__proto__.myName = "updated prototype"; // will modify the myNameof the  Prototype of the constructor
+
+var emp2= new Employee();
+
+
+

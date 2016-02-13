@@ -1,0 +1,101 @@
+
+var person1 = {
+  name : "Rakhi",
+  address : 
+  {
+    city :"Fremont",
+    state : "CA"
+  },
+  isSameState : function(stateSent)
+  {
+   return (this.address.state === stateSent)
+  }
+};
+
+var person2 = {
+  name : "Indu",
+  address : 
+  {
+    city :"Milpitas",
+    state : "CA"
+  },
+  isSameState : function(stateSent)
+  {
+   return (this.address.state === stateSent)
+  }
+};
+
+var person3 = {
+  name : "Anita",
+  address : 
+  {
+    city :"Sunnyvale",
+    state : "Newark"
+  },
+  isSameState : function(stateSent)
+  {
+   return (this.address.state === stateSent)
+  }
+};
+
+var person4 = {
+  name : "Deepti",
+  address : 
+  {
+    city :"Newark",
+    state : "Arizona"
+  },
+  isSameState : function(stateSent)
+  {
+   return (this.address.state === stateSent)
+  }
+};
+
+
+var perArray = [person1,person2,person3,person4];
+
+function extractSameStatePersons(state) {
+  var sameStatePersonsArray = [];
+   for(var i=0; i < perArray.length; i++ ) {
+     if(perArray[i].isSameState(state)) {
+      sameStatePersonsArray.push(perArray[i]);
+     }
+   }
+  return sameStatePersonsArray;
+}
+
+// can also be done with forEach 
+//call to the function is inline here
+function extractSameStatePersons(state) {
+  var sameStatePersonsArray = [];
+     perArray.forEach(function(person)) {
+      sameStatePersonsArray.push(perArray[i]);
+    }
+  return sameStatePersonsArray;
+}
+
+
+
+var newArray = extractSameStatePersons("CA");
+ 
+// to display the new array of objects use forEach
+newArray.forEach(function(person){
+console.log(person);
+});
+
+
+// can also be done using filter() or every() function on arrays
+// will create a newArray sameStatePersons 
+// with all the persons with the same state as the given state
+
+  var sameStatePersons = perArray.filter(function(person){
+    if(person.isSameState("Arizona")) {
+      return person; 
+    }
+  })
+  
+  // to display the new array of objects use forEach
+  sameStatePersons.forEach(function(person){
+    console.log(person);
+
+  });

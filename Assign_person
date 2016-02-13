@@ -1,0 +1,27 @@
+// decalaring an object inline
+
+var person = 
+{
+  firstName: "Rakhi",
+  middleName: null,
+  lastName:  "Agnihotri",
+  address :  
+  {
+    street:"warren", 
+    city:"fremont",
+    state:"california",
+    country:"USA",
+    pin: 94535
+  },
+   work:
+  {
+     occupation:"SE",
+     company:"SRS"
+    }
+};
+
+console.log(person.work.company);
+console.log(person.address.pin);
+
+
+

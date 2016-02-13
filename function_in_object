@@ -1,0 +1,27 @@
+// decalaring an object inline
+
+var person = 
+{
+  firstName: "Rakhi",
+  middleName: null,
+  lastName:  "Agnihotri",
+  getFullName : function()
+   {
+     // do not use person.firstName 
+     return this.firstName + " " + this.lastName;
+   
+   }
+};
+
+var fullName = person.getFullName();
+console.log(fullName);
+
+var person1 = person;
+var fullName1 = person1.getFullName();
+console.log(fullName1);
+
+var testfunc = function(n,n1)
+{
+ console.log(arguments[0]);}
+
+testfunc(1,2);

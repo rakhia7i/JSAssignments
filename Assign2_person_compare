@@ -1,0 +1,31 @@
+var person1 ={
+  firstName : "Anita",
+  lastName : "Kundra",
+  address :
+  {
+    city : "Sunnyvale",
+    state :"CA"
+   },
+  checkState : function(perObj)
+  {
+    return (this.address.state === perObj.address.state);
+   }
+};
+
+var person2 ={
+  firstName : "Rakhi",
+  lastName : "Agnihotri",
+  address :
+  {
+    city : "Fremont",
+    state :"Arizona"
+  },
+  checkState : function(perObj)
+  {
+    return (this.address.state === perObj.address.state);
+  }
+};
+
+console.log(person1.checkState(person2));
+
+console.log(person2.checkState(person1));

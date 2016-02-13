@@ -1,0 +1,34 @@
+var morning = function(name)
+{
+  console.log("good morning " +name);
+};
+
+var afternoon = function(name)
+{
+  console.log("good afternoon " +name);
+};
+
+var evening = function(name)
+{
+  console.log("good evening " +name);
+};
+
+var evening1 = function(name)
+{
+  console.log("good evening " +name);
+};
+
+
+var greeting = function (fn, name)
+{ fn(name);};    
+
+var hour = 19;
+
+if(hour < 12)
+    greeting(morning,"rakhi");
+else if(hour<16)
+  greeting(afternoon,"rakhi");
+else
+   greeting(eve,"rakhi");
+
+

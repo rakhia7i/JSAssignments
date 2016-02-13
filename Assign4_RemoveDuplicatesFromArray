@@ -1,0 +1,99 @@
+var arr = ["NY","CA","NY","NY","Arizona","NY","CA","CA","Arizona","NY"];
+
+// using the for loop
+var newArr= [];
+// using the regular for loops
+console.log("Using the regular for loops");
+
+for(var i = 0; i< arr.length; i++){
+  currState = arr[i];
+  stateExists = false;
+  for(var j=0; j< newArr.length; j++) {
+    if(newArr[j] === currState ){
+      stateExists = true;
+      break;
+    }
+  }
+  if(!stateExists) {
+    newArr.push(currState);
+  }
+}
+
+newArr.forEach(function(state){
+  console.log(state);
+})
+
+//---------------------------------------------------
+
+// using the indeoxOf method of the array
+// indexOf searches the occurence of the fist match and returns the position. 
+// If not found, it returns -1 
+var newArr2 = [];
+for(var i = 0; i< arr.length; i++){
+  currState = arr[i];
+  if(newArr2.indexOf(currState) === -1) {
+    newArr2.push(currState);
+  }
+}
+console.log("Using the indexOf method for arrays");
+console.log(newArr2);
+//---------------------------------------------------
+var arr = ["NY","CA","NY","NY","Arizona","NY","CA","CA","Arizona","NY"];
+// using the forEach method for arrays
+var resultArr = [];
+
+function arrContains(pArr, prevArrState){
+  var contains = false;
+  if(pArr !== undefined){
+    pArr.forEach(function(st){
+      if(st === prevArrState) {
+        contains = true;
+      }
+    });
+  }
+    return contains;
+}
+
+arr.forEach(function(state){
+  if(!arrContains(resultArr, state)){
+    resultArr.push(state);
+  }  
+});
+
+console.log("Using the forEach method");
+resultArr.forEach(function(state){
+  console.log(state);
+})
+
+//---------------------------------------------------
+
+// Attempt to remove duplicates without using a second array
+var dataArr = ["NY","CA","AZ","NY","NY","AZ","NY","CA","OH","CA","AZ","NY","OH","MI"];
+
+for(var i=0; i<dataArr.length;i++){
+  var currState = dataArr[i];
+  for(var j=dataArr.length; j>i; j--){
+    if(dataArr[j] === currState){
+      dataArr.splice(j,1);
+    }
+  }
+}
+
+console.log("Removing duplicates from the current array " + dataArr);
+
+
+// delete works fine but leaves blank elements in the array
+// the space holders are still there.
+var dataArr = ["NY","CA","AZ","NY","NY","AZ","NY","CA","OH","CA","AZ","NY","OH","MI"];
+
+for(var i=0; i<dataArr.length;i++){
+  var currState = dataArr[i];
+  for(var j=dataArr.length; j>i; j--){
+    if(dataArr[j] === currState){
+      delete(dataArr[j]);
+    }
+  }
+}
+
+console.log("Using delete>>> " + dataArr);
+
